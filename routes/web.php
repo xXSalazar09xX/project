@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//Ruta para mostrar la lista de productos
+Route::get("/", [ProductoController::class, 'index']);
+//Rutas para agregar
+Route::post('/agregar',[ProductoController::class,'store']);
+
